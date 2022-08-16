@@ -2,16 +2,19 @@
   "name": "vue-firebase-auth-pro",
   "version": "0.0.0",
   "scripts": {
+    "test": "jest",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "firebase": "^9.9.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
+    "jest": "^28.1.3",
     "vite": "^3.0.4"
   }
 }

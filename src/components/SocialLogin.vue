@@ -12,7 +12,6 @@
             <img src="../components/icons/microsoft.svg" alt="" class="w-4 mr-3">
             Continue with Microsoft
         </button>
-        
     </div>
 </template>
 

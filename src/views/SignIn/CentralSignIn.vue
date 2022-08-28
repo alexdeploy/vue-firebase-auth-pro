@@ -14,7 +14,7 @@
             <!-- email / user -->
             <div class="flex mb-4 w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
                 <div class="border-r border-white/10 self-center">
-                    <img src="../components/icons/user-shape2.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                    <img src="../../components/icons/user-shape2.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
                 </div>
                 <input 
                     type="text"
@@ -27,7 +27,7 @@
             <!-- password -->
             <div class="flex w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
                 <div class="border-r border-white/10 self-center">
-                    <img src="../components/icons/password.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                    <img src="../../components/icons/password.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
                 </div>
                 <input 
                     type="password"

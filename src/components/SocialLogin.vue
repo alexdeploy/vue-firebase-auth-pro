@@ -16,9 +16,10 @@
 </template>
 
 <script>
-import { signInGoogle } from '../firebase/utils'
+import { signInGoogle, signInMicrosoft } from '../firebase/utils'
 
 const signInWithGoogle = () => signInGoogle()
+const signInWithMicrosoft = () => signInMicrosoft()
 
 export default {
     name: 'SocialLogin',
@@ -27,9 +28,7 @@ export default {
             console.log('sign in with apple');
         },
         signInWithGoogle,
-        signInWithMicrosoft() {
-            console.log('sign in with microsoft');
-        }
+        signInWithMicrosoft
     },
 }
 </script>

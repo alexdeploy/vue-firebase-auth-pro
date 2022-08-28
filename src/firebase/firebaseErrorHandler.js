@@ -39,6 +39,10 @@ export default function firebaseErrorHandler(error) {
         case 'undefined':
             // Code
             break;
+        case 'auth/operation-not-allowed':
+            msg = 'This operation is not allowed. Please you can enable it in config.js';
+            alert(msg)
+            break;
     }
     return msg;
 }

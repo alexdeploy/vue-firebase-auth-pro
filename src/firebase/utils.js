@@ -4,6 +4,7 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
+    OAuthProvider,
     signInWithPopup
 } from "firebase/auth";
 
@@ -33,11 +34,27 @@ const signInFirebase = (email, password) =>
 */
 const signInGoogle = () => {
     const provider = new GoogleAuthProvider();
-    
+
     signInWithPopup(auth, provider)
         .then((result) => {
             // Actions
             window.location.href = '/success';
+        }).catch((error) => firebaseErrorHandler(error));
+}
+
+/**
+ * Sign in user with Microsoft account.
+ * IMPORTANT: You need to create a Microsoft account and add your app to it.
+ * https://firebase.google.com/docs/auth/web/microsoft-oauth
+ */
+const signInMicrosoft = () => {
+    const provider = new OAuthProvider('microsoft.com');
+
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Actions
+            console.log("You have logged in successfully with Microsoft account.");
+            /* window.location.href = '/success'; */
         }).catch((error) => firebaseErrorHandler(error));
 }
 /**
@@ -59,5 +76,6 @@ const authState = () => {
 export {
     signInFirebase,
     signInGoogle,
+    signInMicrosoft,
     authState
 }

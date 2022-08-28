@@ -79,9 +79,10 @@
 </template>
 
 <script>
-import SocialLogin from '../components/SocialLogin.vue';
+import SocialLogin from '../../components/SocialLogin.vue';
 
 export default {
+    name: 'CentralSignIn',
     components: {
         SocialLogin
     },

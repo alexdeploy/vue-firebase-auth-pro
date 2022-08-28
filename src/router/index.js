@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import SignIn from '../views/SignIn.vue'
-import SignUp from '../views/SignUp.vue'
+import CentralSignIn from '../views/SignIn/CentralSignIn.vue'
+import SignUp from '../views/SignUp/SignUp.vue'
 import LateralSignIn from '../views/SignIn/LateralSignIn.vue'
 import FullSignIn from '../views/SignIn/FullSignIn.vue'
+import Success from '../views/Success.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,7 +11,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: SignIn
+      component: FullSignIn
     },
     {
       path: '/sign-up',
@@ -19,8 +20,8 @@ const router = createRouter({
     },
     {
       path: '/central-sign-in',
-      name: 'sign-in',
-      component: SignIn
+      name: 'central-sign-in',
+      component: CentralSignIn
     },
     {
       path: '/lateral-sign-in',
@@ -32,6 +33,11 @@ const router = createRouter({
       name: 'full-sign-in',
       component: FullSignIn
     },
+    {
+      path: '/success',
+      name: 'success',
+      component: Success
+    }
   ]
 })
 

@@ -22,7 +22,7 @@
                         v-model="email"
                         class="bg-transparent w-full p-3 rounded-xl inside-input focus:outline-none caret-white/50 text-white"
                         name="email"
-                        placeholder="Username / Email" />
+                        placeholder="Email" />
                 </div>
 
                 <!-- password -->
@@ -38,16 +38,6 @@
                         name="password"
                         placeholder="Password" />
                 </div>
-                
-                <!-- divider -->
-                <div class="relative flex py-5 items-center">
-                    <div class="flex-grow border-t-2 border-white/10"></div>
-                    <span class="flex-shrink mx-4 text-white/50">or</span>
-                    <div class="flex-grow border-t-2 border-white/10"></div>
-                </div>
-
-                <!-- social login -->
-                <SocialLogin />
 
             <!-- remember and forgot password -->
             <div class="flex justify-between m-3">
@@ -75,6 +65,16 @@
                 <router-link class="no-underline text-white" to="/sign-up">Sign Up</router-link>
             </div>
 
+            <!-- divider -->
+            <div class="relative flex py-5 items-center">
+                <div class="flex-grow border-t-2 border-white/10"></div>
+                <span class="flex-shrink mx-4 text-white/50">or</span>
+                <div class="flex-grow border-t-2 border-white/10"></div>
+            </div>
+
+            <!-- social login -->
+            <SocialLogin />
+
         </div>
 
     </div>
@@ -83,39 +83,21 @@
 
 <script>
 import SocialLogin from '../../components/SocialLogin.vue';
+import { signInFirebase } from '../../firebase/utils';
 
 export default {
     name: 'FullSignIn',
     components: {
         SocialLogin
     },
-
-    mounted(){
-        const form = document.getElementsByTagName('form')[0];
-        const signWithApple = document.getElementById('sign-with-apple');
-        const signWithGoogle = document.getElementById('sign-with-google');
-        const signWithMicrosoft = document.getElementById('sign-with-microsoft');
-/* 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log(this.email, this.password);
-        })
-
-        signWithGoogle.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Login with google')
-        });
-
-        signWithApple.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Login with apple')
-        });
-
-        signWithMicrosoft.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Login with microsoft')
-        }); */
-
+    methods: {
+        signIn(){           
+            const data = {
+                password: this.password,
+                email: this.email
+            };
+            signInFirebase(data.email, data.password);
+        }
     }
 }
 </script>

@@ -1,11 +1,17 @@
 import app from './firebase.config'
 import firebaseErrorHandler from './firebaseErrorHandler'
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup
+} from "firebase/auth";
 
 const auth = getAuth();
 
 /**
  * Sign in user with email and password.
+ * https://firebase.google.com/docs/auth/web/password-auth
  * @param {*} email user email
  * @param {*} password user password
  * @returns 
@@ -22,7 +28,21 @@ const signInFirebase = (email, password) =>
       .catch((error) => firebaseErrorHandler(error));
 
 /**
+* Sign in user with Google account.
+* https://firebase.google.com/docs/auth/web/google-signin
+*/
+const signInGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            // Actions
+            window.location.href = '/success';
+        }).catch((error) => firebaseErrorHandler(error));
+}
+/**
  * Check if user is logged in when state changes.
+ * https://firebase.google.com/docs/auth/web/manage-users
  * @param {*} user firebase user credential object
  */
 const authState = () => {
@@ -38,5 +58,6 @@ const authState = () => {
 
 export {
     signInFirebase,
+    signInGoogle,
     authState
 }

@@ -36,6 +36,9 @@ export default function firebaseErrorHandler(error) {
         case 'auth/too-many-requests':
             // Code
             break;
+        case 'undefined':
+            // Code
+            break;
     }
     return msg;
 }

@@ -16,15 +16,17 @@
 </template>
 
 <script>
+import { signInGoogle } from '../firebase/utils'
+
+const signInWithGoogle = () => signInGoogle()
+
 export default {
     name: 'SocialLogin',
         methods: {
         signInWithApple() {
             console.log('sign in with apple');
         },
-        signInWithGoogle() {
-            console.log('sign in with google');
-        },
+        signInWithGoogle,
         signInWithMicrosoft() {
             console.log('sign in with microsoft');
         }

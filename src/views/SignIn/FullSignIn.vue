@@ -6,47 +6,48 @@
         <!-- login form -->
         <div class="container max-w-md px-6 py-8 text-black w-full">
 
-            <!-- login header -->
-            <div class="mb-5">
-                <h1 class="mb-2 text-3xl text-gray-200">Log In</h1>
-                <span class="text-gray-400 pb-5 text-sm">Tell us who you are!</span>
-            </div>
 
-            <!-- email / user -->
-            <div class="flex mb-4 w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
-                <div class="border-r border-white/10 self-center">
-                    <img src="../../components/icons/user-shape2.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                <label class="mb-5">
+                    <h1 class="mb-2 text-3xl text-gray-200">Log In</h1>
+                    <span class="text-gray-400 pb-5 text-sm">Tell us who you are!</span>
+                </label>
+
+                <!-- email / user -->
+                <div class="flex mb-4 w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
+                    <div class="border-r border-white/10 self-center">
+                        <img src="../../components/icons/user-shape2.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                    </div>
+                    <input 
+                        type="text"
+                        v-model="email"
+                        class="bg-transparent w-full p-3 rounded-xl inside-input focus:outline-none caret-white/50 text-white"
+                        name="email"
+                        placeholder="Username / Email" />
                 </div>
-                <input 
-                    type="text"
-                    v-model="email"
-                    class="bg-transparent w-full p-3 rounded-xl inside-input focus:outline-none caret-white/50 text-white"
-                    name="email"
-                    placeholder="Username / Email" />
-            </div>
 
-            <!-- password -->
-            <div class="flex w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
-                <div class="border-r border-white/10 self-center">
-                    <img src="../../components/icons/password.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                <!-- password -->
+
+                <div class="flex w-full rounded-xl border-2 border-white/10 hover:bg-black/10  pro-input">
+                    <div class="border-r border-white/10 self-center">
+                        <img src="../../components/icons/password.svg" class="w-4 ml-4 mr-4 log-svg" alt="">
+                    </div>
+                    <input 
+                        type="password"
+                        v-model="password"
+                        class="bg-transparent w-full p-3 rounded-xl inside-input focus:outline-none caret-white/50 text-white"
+                        name="password"
+                        placeholder="Password" />
                 </div>
-                <input 
-                    type="password"
-                    v-model="password"
-                    class="bg-transparent w-full p-3 rounded-xl inside-input focus:outline-none caret-white/50 text-white"
-                    name="password"
-                    placeholder="Password" />
-            </div>
+                
+                <!-- divider -->
+                <div class="relative flex py-5 items-center">
+                    <div class="flex-grow border-t-2 border-white/10"></div>
+                    <span class="flex-shrink mx-4 text-white/50">or</span>
+                    <div class="flex-grow border-t-2 border-white/10"></div>
+                </div>
 
-            <!-- divider -->
-            <div class="relative flex py-5 items-center">
-                <div class="flex-grow border-t-2 border-white/10"></div>
-                <span class="flex-shrink mx-4 text-white/50">or</span>
-                <div class="flex-grow border-t-2 border-white/10"></div>
-            </div>
-
-            <!-- social login -->
-            <SocialLogin />
+                <!-- social login -->
+                <SocialLogin />
 
             <!-- remember and forgot password -->
             <div class="flex justify-between m-3">
@@ -73,6 +74,7 @@
                 Already don't have an account? 
                 <router-link class="no-underline text-white" to="/sign-up">Sign Up</router-link>
             </div>
+
         </div>
 
     </div>
@@ -87,6 +89,34 @@ export default {
     components: {
         SocialLogin
     },
+
+    mounted(){
+        const form = document.getElementsByTagName('form')[0];
+        const signWithApple = document.getElementById('sign-with-apple');
+        const signWithGoogle = document.getElementById('sign-with-google');
+        const signWithMicrosoft = document.getElementById('sign-with-microsoft');
+/* 
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log(this.email, this.password);
+        })
+
+        signWithGoogle.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Login with google')
+        });
+
+        signWithApple.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Login with apple')
+        });
+
+        signWithMicrosoft.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Login with microsoft')
+        }); */
+
+    }
 }
 </script>
 
